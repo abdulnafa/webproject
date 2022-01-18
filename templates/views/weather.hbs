@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheater App</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+   {{>cssLinks}}
+
+    <style>
+        *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #8080801f;
+}
+.outerMainBox{
+    width: 100%;
+    height: 600px;
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+}
+.mainBox{
+    background-color:#3767d76e;
+    width: 300px;
+    height: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+
+}
+.sunIcon{
+    text-align: center;
+   height: 250px;
+    padding: 80px 0;
+}
+.sunIcon i{
+
+    font-size: 64px;
+    color: #ffff00bf;
+    
+}
+.countryName{
+    text-align: center;
+    /* padding: 5px 0; */
+}
+
+.temperature{
+    text-align: center;
+    /* padding: 5px 0; */
+}
+.date{
+    text-align: center;
+    color: #ffffffd4;
+    font-size: 12px;
+    padding: 9px 0;
+}
+
+.temperatureDetail{
+    text-align: center;
+    color: #ffffffd4;
+    font-size: 12px;
+    padding: 9px 0;
+    z-index: 999;
+}
+
+.animationDiv1{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 220px;
+    height: 200px;
+    position:absolute;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count:infinite;
+    bottom: 0;
+    left: -10px;
+    right: 0;
+    z-index: -1;
+    border-radius: 60%;
+   
+    
+}
+.animationDiv2{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 230px;
+    height: 200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+    z-index: -2;
+    bottom: 2px;
+    left: -60px;
+    right: 0;
+    border-radius: 60%;
+   
+    
+}
+.animationDiv3{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 240px;
+    height:200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count:infinite;
+    z-index: -3;
+    bottom: 3px;
+    left: -30px;
+    right: 0;
+    border-radius: 60%;
+    
+   
+}
+.animationDiv4{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 250px;
+    height:200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count:infinite;
+    z-index: -3;
+    bottom: 3px;
+    left: 30px;
+    right: 0;
+    border-radius: 60%;
+    
+    
+}
+.animationDiv5{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 260px;
+    height:200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count:infinite;
+    z-index: -3;
+    bottom: 3px;
+    left: 70px;
+    right: 0;
+    border-radius: 60%;
+    
+    
+}
+.animationDiv6{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 260px;
+    height:200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count:infinite;
+    z-index: -3;
+    bottom: 3px;
+    left: 0px;
+    right: 0;
+    border-radius: 60%;
+    
+    
+}
+.animationDiv7{
+    background-color: #7ed6df;
+    padding: 20px 0;
+    width: 260px;
+    height:200px;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+    z-index: -3;
+    bottom: 3px;
+    left: 120px;
+    right: 0;
+    border-radius: 60%;
+    
+    
+}
+@keyframes example {
+    0% { transform: rotate(0deg);}
+    40% { transform: rotate(90deg);}
+    60% { transform: rotate(180deg);}
+    70% { transform: rotate(280deg);}
+    100% { transform: rotate(360deg);}
+  }
+
+  .fa-male{
+      animation-name: man;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+       animation-direction: reverse;  
+  }
+  @keyframes man {
+      from{
+      margin-right: 0px;
+      }
+
+       to{
+      margin-right: 20px;
+      }
+
+        0%   { margin-right: 0px;}
+  50%  { margin-right: 30px;}
+  75%  { margin-right: 20px;}
+  100% { margin-right: 0px;}
+  }
+
+  .contentDiv{
+      z-index: 9999999999;
+      /* background-color: #7ed6df; */
+      background-color: #3498db;
+      height: 200px;
+      padding: 20px 0;
+      color: white;
+
+  }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid bg-dark">
+    <div class="row">
+        <div class="col-md-10 col-12 mx-auto full_main">
+<!-- Main Start Div  -->
+
+<!-- Navbar  -->
+
+    {{!-- Header navbar  --}}
+
+{{>navbar}}
+
+
+    {{!-- Navbar End  --}}
+    <div class="outerMainBox">
+        <div class="mainBox">
+<div class="sunIcon">
+    <i class="fas fa-sun"></i>
+</div>
+<div class="animationDiv1"></div>
+<div class="animationDiv2"></div>
+<div class="animationDiv3"></div>
+<div class="animationDiv4"></div>
+<div class="animationDiv5"></div>
+<div class="animationDiv6"></div>
+<div class="animationDiv7"></div>
+
+<div class="contentDiv">
+    <div class="countryName">
+        {{!-- <h2><i class="fas fa-male"></i> {%location%}, {%country%}</h2> --}}
+        <h2><i class="fas fa-male"></i>,<span id="locationOrCountry"></span></h2>
+    </div>
+    <div class="date" id="date">
+        <h2>Tuesday | Jan 11 | 11:00 PM</h2>
+    </div>
+    
+    <div class="temperature">
+        <h2><span id="temp"></span> &deg;C</h2>
+    </div>
+    <div class="temperatureDetail">
+        <h2 id="minMax"></h2>
+    </div>
+</div>
+   
+
+
+
+
+
+
+        </div>
+    </div>
+{{!-- Footer  --}}
+
+{{>footer}}
+
+
+<!-- Main Div Close  -->
+        </div>
+    </div>
+</div>
+ 
+
+<script>
+//Get Data Portion first
+
+const date=document.getElementById('date');
+
+
+const getDate=new Date();
+
+//Get Day
+const day=getDate.getDay();
+
+
+const dayArr=[
+    'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'
+];
+
+const finalDay=dayArr[day-1];
+
+//Get  year
+
+const finalYear=getDate.getFullYear();
+//Get Month
+
+
+const month=getDate.getMonth();
+
+const monthArr=[
+    'Jan','Feb','March','April','May','June','July','Aug','Sep','Oct','Nov','Dec'
+];
+
+const finalMonth=monthArr[month];
+
+
+// Get Date
+
+
+let dateMonth=getDate.getDate();
+if(dateMonth<10){
+     dateMonth="0"+dateMonth;
+}
+//Get Minute
+
+
+let minute=getDate.getMinutes();
+if(minute<10){
+    minute="0"+ minute;
+}
+
+
+//Get Hours
+
+
+let hours=getDate.getHours();
+if(hours>12){
+    hours=hours-12; 
+   
+
+}
+else if(hours>=12){
+    minute=minute + " PM "
+
+}else{
+    minute=minute + " AM "
+}
+
+
+
+
+const fullCombineDate=`${finalDay}  | ${dateMonth} ${finalYear}  | &nbsp;  ${hours} : ${minute} `; 
+
+date.innerHTML=fullCombineDate;
+// weather Fetching Details 
+
+const allDetailFunc=async ()=>{
+
+    const locationOrCountry=document.getElementById('locationOrCountry');
+    const minMax=document.getElementById('minMax');
+    const temp=document.getElementById('temp');
+let url=`https://api.openweathermap.org/data/2.5/weather?q=sargodha&appid=221e1dd3e2c846b565db0dbe23cb240b`;
+
+const data =await fetch(url);
+const jsonData=await data.json();
+const jsonDataArr=[jsonData];
+locationOrCountry.innerText=`${jsonDataArr[0].sys.country}  | ${jsonDataArr[0].name}`;
+minMax.innerText=`Min :${jsonDataArr[0].main.temp_min} ||  Max :${jsonDataArr[0].main.temp_max}`;
+const toCel=Math.round(jsonDataArr[0].main.temp-273.15);
+temp.innerText=`${toCel}`;
+}
+
+allDetailFunc();
+
+
+</script>    <!-- <script src="js/index.js"></script> -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {{!-- <script src="js/serverFile.js"></script> --}}
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%; 
+}
+.full_main{
+    height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+:root{
+    --color:white;
+   --bgcolor: grey;
+}
+
+
+
+nav{
+    padding: 2rem 0;
+}
+.navbar-nav{
+    margin-left: auto;
+    font-size: 2rem;
+}
+.navbar-nav li{
+    margin-left: 2rem;
+}
+.navbar-nav li a:hover{
+    color: whitesmoke;
+    /* cursor: pointer; */
+}
+.navbar-brand{
+    font-size: 2rem;
+}
+.fa-snowflake{
+    margin:0 1rem;
+    animation-name: snow;
+    transition: all linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+@keyframes snow {
+    0%{transform:rotate(0deg)}
+    100%{transform: rotate(360deg)}
+}
+
+
+/* Main div part  */
+.main{
+    color: var(--color);
+  
+}
+.main_left{
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+   
+}
+.main_left p{
+    font-size: 2rem;
+}
+.main_right{
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    
+}
+footer{
+    
+    margin-top: auto;
+    color:var(--color) ;
+}
+
+footer h5{
+    line-height: 5rem;
+    font-size: 2rem;
+}
