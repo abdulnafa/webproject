@@ -20,6 +20,10 @@ app.get('/about',(req,res)=>{
     res.render("about");
 });
 
+app.get('/comingSoon',(req,res)=>{
+    res.render("comingSoon");
+});
+
 app.get('/weather',(req,res)=>{
     res.render("weather");
 });
